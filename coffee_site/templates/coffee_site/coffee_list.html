@@ -1,0 +1,44 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Coffee site</title>
+  </head>
+  <body>
+    Hello, welcome to Coffee site..
+
+    <img src="{% static 'coffee_site/images/bajarangbali.jpg' %}">
+    <link rel="stylesheet" href="{% static 'css/coffee_list.css' %}">
+
+    <div class="coffee">
+      {% if customers %}
+        <table>
+          <thead>
+            <th>Customer_name</th>
+            <th>email</th>
+            <th>phone_number</th>
+          </thead>
+
+          {% for c in customers %}
+          <tr>
+            <td>{{c.Customer_name}}</td>
+            <td>{{c.mail}}</td>
+            <td>{{c.phone_number}}</td>
+          </tr>
+          {% endfor %}
+
+        </table>
+
+      {% else %}
+          <p>No recoreds found</p>
+        {% endif %}
+
+
+
+
+    </div>
+  </body>
+</html>
